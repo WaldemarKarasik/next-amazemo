@@ -17,7 +17,8 @@ const composeEnhancers =
 const SET_CLIENT_STATE = "SET_CLIENT_STATE";
 
 const cartItems = Cookie.getJSON("cartItems") || [];
-const initialState = { cart: { cartItems } };
+const facebookUser = Cookie.getJSON("facebookUser") || {};
+const initialState = { cart: { cartItems }, user: { facebookUser } };
 
 const makeConfiguredStore = (rootReducer) =>
   createStore(
@@ -38,7 +39,7 @@ const makeStore = () => {
 
     const persistConfig = {
       key: "nextjs",
-      whitelist: ["fromClient"], // make sure it does not clash with server keys
+      whitelist: ["cartItems"], // make sure it does not clash with server keys
       storage,
     };
 

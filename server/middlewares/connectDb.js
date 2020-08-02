@@ -9,8 +9,12 @@ module.exports = async function dabatase(req, res, next) {
   //   return next();
   // });
   mongoose.connect(
-    "mongodb+srv://komsomolradio:irkytsk87@cluster0.melez.gcp.mongodb.net/next-amazemo?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
+    // "mongodb+srv://komsomolradio:irkytsk87@cluster0.melez.gcp.mongodb.net/next-amazemo?retryWrites=true&w=majority",
+    "mongodb://localhost:27017/next",
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+    (err) => {
+      if (err) console.log(err);
+    }
   );
 
   return next();

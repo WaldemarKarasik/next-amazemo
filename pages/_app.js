@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 export default wrapper.withRedux(({ Component, pageProps }) => {
   const store = useStore();
   return (
-    // <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
+    // <PersistGate persistor={store.__persistor} loading={null}>
     <div className="grid-container">
       <HeaderAndAside />
 

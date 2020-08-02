@@ -7,13 +7,17 @@ const handle = app.getRequestHandler();
 const db = require("./database");
 const data = require("../data");
 const connectDb = require("./middlewares/connectDb");
+const passport = require("passport");
 
 // db.connect();
 
 app.prepare().then(() => {
   const server = express();
   // require("./middlewares").init(server, db);
+  server.use(express.json());
   server.use(connectDb);
+  server.use(passport.initialize());
+  server.use(passport.session());
   server.use("/custom-api/users", require("./routes/userRoute"));
   server.get("/custom-api/products", async (req, res) => {
     if (req.query.id) {
