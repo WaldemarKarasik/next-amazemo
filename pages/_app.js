@@ -1,7 +1,22 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import React from "react";
+import App from "next/app";
+import { useStore } from "react-redux";
+import { wrapper } from "../store/store";
+import { PersistGate } from "redux-persist/integration/react";
+import HeaderAndAside from "../components/HeaderAndAside";
+import Footer from "../components/Footer";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+export default wrapper.withRedux(({ Component, pageProps }) => {
+  const store = useStore();
+  return (
+    // <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
+    <div className="grid-container">
+      <HeaderAndAside />
 
-export default MyApp
+      <Component {...pageProps} />
+      <Footer />
+    </div>
+    // </PersistGate>
+  );
+});
