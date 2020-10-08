@@ -16,7 +16,7 @@
     "jsondiffpatch": "^0.4.1",
     "mongodb": "^3.6.0",
     "mongoose": "^5.9.27",
-    "next": "9.5.1",
+    "next": "9.5.4",
     "next-connect": "^0.8.1",
     "next-redux-wrapper": "^6.0.2",
     "nodemon": "^2.0.4",
